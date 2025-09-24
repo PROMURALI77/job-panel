@@ -9,9 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "mongoose": "^8.18.2",
+    "multi-range-slider-react": "^2.0.7",
+    "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "react-hook-form": "^7.63.0",
+    "react-hot-toast": "^2.6.0",
+    "react-range": "^1.10.0",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "typescript": "^5",
