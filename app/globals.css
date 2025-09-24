@@ -95,7 +95,7 @@ input[type='range']::-moz-range-thumb {
 		@apply w-full mx-auto px-[64px];
 	}
 	.form_div {
-		@apply mb-[6px];
+		@apply mb-[2px];
 	}
 	.form_label {
 		@apply font-[600] text-[20px] text-Form_label mb-3;

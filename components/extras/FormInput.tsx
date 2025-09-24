@@ -47,7 +47,7 @@ const FormInput = ({
             placeholder={placeholder}
             id={id}
             name={name}
-            className="w-full  placeholder:font-[500] placeholder:text-Form_placeholder"
+            className="w-full h-32  placeholder:font-[500] placeholder:text-Form_placeholder"
             rows={5}
             {...register}
           />
@@ -57,11 +57,11 @@ const FormInput = ({
 
     case "select":
       return (
-        <div>
+        <div className="relative">
           <select
             id={id}
             name={name}
-            className="max-w-[376px] w-full "
+            className="max-w-[376px] w-full appearance-none pr-12"
             defaultValue=""
             {...register}
           >
@@ -78,6 +78,12 @@ const FormInput = ({
               </option>
             ))}
           </select>
+          {/* Bigger Chevron Icon */}
+          <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-gray-500">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </span>
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
       );
