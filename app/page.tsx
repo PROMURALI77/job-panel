@@ -1,6 +1,25 @@
 'use client';
 
+import React from 'react';
+import { CreateJob, JobList, Navbar } from '@/components';
+import { useAppContext } from '@/hooks/useAppContext';
 
-export default function Home() {
-	return <div className='text-white font-bold text-2xl'>murali</div>;
-}
+const Home = () => {
+	const { isModalOpen } = useAppContext();
+
+	return (
+		<>
+			{isModalOpen && <CreateJob />}
+			<div className='w-full h-screen bg-primary'>
+				<div className='w-full bg-white'>
+					<Navbar />
+				</div>
+				<div className='container'>
+					<JobList />
+				</div>
+			</div>
+		</>
+	);
+};
+
+export default Home;
