@@ -1,26 +1,118 @@
 @import 'tailwindcss';
+@import 'multi-range-slider-react/lib/multirangeslider.css';
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font-satoshi);
+	overflow-x: hidden;
+}
+
+input[type='range'] {
+	-webkit-appearance: none;
+	appearance: none;
+	pointer-events: auto;
+}
+
+input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: white;
+	cursor: pointer;
+	border: 5px solid black;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type='range']::-moz-range-thumb {
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: blalck;
+	cursor: pointer;
+	border: 2px solid black;
 }
 
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+	/* Fonts */
+	--font-satoshi: var(--font-satoshi);
+
+	/* Colors */
+	/* Overrall Application */
+	--color-primary: #fbfbff;
+	/* Modal Background */
+	--color-secondary: #7d7d7f;
+
+	/* Default Color */
+	--color-white: #ffffff;
+	--color-black: #000000;
+
+	/* Navbar */
+	--color-navbar: #303030;
+
+	/* Range Input */
+	--color-Range_input: #222222;
+
+	/* Cards impo Info */
+	--color-Cards_info: #5a5a5a;
+
+	/* Cards Description */
+	--color-Cards_desc: #555555;
+
+	/* Filter Placeholder */
+	--color-Filter_placeholder: #686868;
+
+	/* Button Color */
+	--color-button: #00aaff;
+
+	/* Forms */
+	--color-Form_label: #636363;
+	--color-Form_placeholder: #bcbcbc;
+
+	/* Tag */
+	--color-tag: #b0d9ff;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+@layer base {
+	input,
+	select,
+	textarea {
+		@apply border-[1px] border-[#BCBCBC] rounded-[10px] px-[12px] py-[16px];
 	}
 }
 
-body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+	.linear_gradient {
+		@apply bg-gradient-to-r from-[#A128FF] to-[#6100AD];
+	}
+	.comp_linear_gradient {
+		@apply bg-gradient-to-b from-[#FEFEFD] to-[#F1F1F1] drop-shadow-[#94949440];
+	}
+	.container {
+		@apply w-full mx-auto px-[64px];
+	}
+	.form_div {
+		@apply mb-[6px];
+	}
+	.form_label {
+		@apply font-[600] text-[20px] text-Form_label mb-3;
+	}
+	.filter_input {
+		@apply border-none outline-none placeholder:text-Filter_placeholder w-full text-Filter_placeholder;
+	}
+	.filter_group {
+		@apply flex flex-row gap-3 flex-1 items-center min-w-[150px];
+	}
+}
+
+@layer components {
+	.cards {
+		@apply bg-white rounded-[12px] w-[316px] shadow-[#D3D3D326] shadow-md p-[16px] flex flex-col items-start;
+	}
+	.button {
+		@apply bg-button text-white rounded-[10px] px-[10px] py-[12px];
+	}
 }

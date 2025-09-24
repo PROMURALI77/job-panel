@@ -51,24 +51,28 @@ const SalaryInput = () => {
             </div>
           </div>
         )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: "16px",
-              width: "16px",
-              borderRadius: "50%",
-              backgroundColor: "#fff",
-              border: "4px solid #000",
-              boxShadow: "0 0 0 1px rgba(0,0,0,0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: "1px",
-            }}
-          />
-        )}
+        renderThumb={({ props }) => {
+          const { key, ...restProps } = props;
+          return (
+            <div
+              key={key}
+              {...restProps}
+              style={{
+                ...props.style,
+                height: "16px",
+                width: "16px",
+                borderRadius: "50%",
+                backgroundColor: "#fff",
+                border: "4px solid #000",
+                boxShadow: "0 0 0 1px rgba(0,0,0,0.2)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "1px",
+              }}
+            />
+          );
+        }}
       />
     </div>
   );
