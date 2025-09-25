@@ -96,12 +96,3 @@ const JobList = ({ refreshFlag }: { refreshFlag?: boolean }) => {
 };
 
 export default JobList;
-
-interface JobCardProps {
-	job_exp: string;
-	job_img: string;
-	job_title: string;
-	job_desc: string[];
-	job_location: string;
-	job_salary: number;
-}
