@@ -68,7 +68,3 @@ Visit [http://localhost:3000](http://localhost:3000) to get started!
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 
 ---
-
-## 📝 License
-
-MIT
