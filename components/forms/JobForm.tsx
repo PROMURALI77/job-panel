@@ -14,7 +14,7 @@ import toast from 'react-hot-toast';
 
 type JobFormInputs = z.infer<typeof JobFormSchema>;
 
-const JobForm = () => {
+const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 	const { formRef, setIsModalOpen } = useAppContext();
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -32,11 +32,13 @@ const JobForm = () => {
 		setIsLoading(true);
 		try {
 			const response = await createJob(data, status);
-			console.log(status);
 			if (response.success) {
 				toast.success('Job created successfully!');
 				reset();
 				setIsModalOpen(false);
+				if (status === 'publish' && onJobCreated) {
+					onJobCreated(); // <-- Notify parent to refresh jobs
+				}
 			}
 		} catch (error) {
 			console.error('Error creating job:', error);

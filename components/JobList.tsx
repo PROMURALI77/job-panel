@@ -2,15 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import { JobCard } from '@/components';
-import { comp_amazon } from '@/assets';
+import { comp_amazon, comp_swiggy, comp_tesla } from '@/assets';
 import { useAppContext } from '@/hooks/useAppContext';
 
-const JobList = () => {
+const companyImages = [comp_amazon, comp_swiggy, comp_tesla];
+
+const JobList = ({ refreshFlag }: { refreshFlag?: boolean }) => {
 	const { search, location, jobType, salaryRange } = useAppContext();
 	const [jobs, setJobs] = useState<any[]>([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		setLoading(true);
 		fetch('/api/jobs')
 			.then((res) => res.json())
 			.then((data) => {
@@ -27,7 +30,7 @@ const JobList = () => {
 				setJobs([]);
 				setLoading(false);
 			});
-	}, []);
+	}, [refreshFlag]); // <-- re-fetch when refreshFlag changes
 
 	const filteredJobs = jobs.filter((job) => {
 		const matchesSearch =
@@ -75,11 +78,12 @@ const JobList = () => {
 				const salaryLPA = item.min_salary
 					? Math.round(item.min_salary / 100000)
 					: 0;
+				const randomImg = companyImages[Math.floor(Math.random() * companyImages.length)];
 				return (
 					<JobCard
 						key={item._id || index}
 						job_exp={'1-3yr Exp'}
-						job_img={comp_amazon}
+						job_img={randomImg}
 						job_title={item.job_title}
 						job_desc={[item.job_description]}
 						job_location={item.location}
