@@ -175,7 +175,7 @@ const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 					type='submit'
 					name='action'
 					value='draft'
-					className='flex items-center justify-center text-[20px] font-[600] text-Range_input px-[60px] py-[16px] border-[1.5px] border-Range_input rounded-[10px]'
+					className='flex cursor-pointer items-center justify-center text-[20px] font-[600] text-Range_input px-[60px] py-[16px] border-[1.5px] border-Range_input rounded-[10px]'
 				>
 					Save Draft
 					<Image
@@ -188,7 +188,7 @@ const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 					type='submit'
 					name='action'
 					value='publish'
-					className='flex items-center justify-center text-[20px] font-[600] text-white px-[60px] py-[16px] rounded-[10px] bg-button'
+					className='flex items-center cursor-pointer justify-center text-[20px] font-[600] text-white px-[60px] py-[16px] rounded-[10px] bg-button'
 					disabled={isLoading}
 				>
 					{isLoading ? 'Publishing...' : 'Publish'}
