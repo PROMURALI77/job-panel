@@ -168,7 +168,7 @@ const JobForm = () => {
 				/>
 			</div>
 
-			<div className='flex items-center justify-between mt-[20px]'>
+			<div className='flex items-center justify-between mt-[10px]'>
 				<button
 					type='submit'
 					name='action'

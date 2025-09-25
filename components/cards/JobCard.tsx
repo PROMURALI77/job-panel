@@ -52,7 +52,7 @@ const JobCard = ({
         ))}
       </ul>
 
-      <button className="button flex items-center justify-center font-[600] w-full mt-3">
+      <button className="button cursor-pointer flex items-center justify-center font-[600] w-full mt-3">
         Apply Now
       </button>
     </div>

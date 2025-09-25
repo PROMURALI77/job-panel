@@ -29,7 +29,7 @@ const Navbar = () => {
           </ul>
 
           <button
-            className="linear_gradient py-[8px] px-[24px] rounded-[30px] text-white text-[16px] font-bold min-w-[140px]"
+            className="linear_gradient cursor-pointer py-[8px] px-[24px] rounded-[30px] text-white text-[16px] font-bold min-w-[140px]"
             onMouseEnter={() => setIsMouseOver(true)}
             onMouseLeave={() => setIsMouseOver(false)}
             onClick={() => setIsModalOpen((prev) => !prev)}
