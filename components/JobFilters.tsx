@@ -31,7 +31,7 @@ const JobFilters = () => {
         <input
           type="text"
           placeholder="Search By Job Title, Role"
-          className="filter_input"
+          className="filter_input font-semibold"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -50,7 +50,7 @@ const JobFilters = () => {
         <select
           name="preferred_location"
           id="preferred_location"
-          className="filter_input"
+          className="filter_input font-semibold"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         >
@@ -77,7 +77,7 @@ const JobFilters = () => {
         <select
           name="preferred_job_type"
           id="preferred_job_type"
-          className="filter_input"
+          className="filter_input font-semibold"
           value={jobType}
           onChange={(e) => setJobType(e.target.value)}
         >

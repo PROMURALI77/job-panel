@@ -93,7 +93,14 @@ const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 						name='location'
 						id='location'
 						type='select'
-						options={['Chennai', 'Bangalore', 'Hyderabad','Kochi','Mumbai','Noida']}
+						options={[
+							'Chennai',
+							'Bangalore',
+							'Hyderabad',
+							'Kochi',
+							'Mumbai',
+							'Noida',
+						]}
 						register={register('location')}
 						error={errors.location?.message}
 					/>
@@ -121,7 +128,7 @@ const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 					</label>
 					<div className='grid grid-cols-2 max-sm:grid-cols-1 gap-[8px]'>
 						<FormInput
-							placeholder='₹ 0'
+							placeholder='⇅ ₹0'
 							id='min_salary'
 							name='min_salary'
 							type='text'
@@ -129,7 +136,7 @@ const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 							error={errors.min_salary?.message}
 						/>
 						<FormInput
-							placeholder='₹ 12,00,000'
+							placeholder='⇅ ₹12,00,000'
 							id='max_salary'
 							name='max_salary'
 							type='text'

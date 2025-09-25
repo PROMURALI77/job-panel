@@ -61,7 +61,7 @@ const FormInput = ({
           <select
             id={id}
             name={name}
-            className="max-w-[376px] w-full appearance-none pr-12"
+            className="max-w-[376px] w-full appearance-none pr-12 font-semibold"
             defaultValue=""
             {...register}
           >
