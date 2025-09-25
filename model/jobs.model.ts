@@ -16,8 +16,8 @@ const jobSchema = new mongoose.Schema(
       type: String,
       required: [true, "Location is required"],
       enum: {
-        values: ["Chennai", "Bangalore", "Hyderabad"],
-        message: "Location must be Chennai, Bangalore, or Hyderabad",
+        values: ["Chennai", "Bangalore", "Hyderabad","Kochi","Mumbai","Noida"],
+        message: "Location must be Chennai, Bangalore, Hyderabad, Kochi, Mumbai, or Noida",
       },
     },
     job_type: {

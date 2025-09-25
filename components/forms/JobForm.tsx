@@ -93,7 +93,7 @@ const JobForm = ({ onJobCreated }: { onJobCreated?: () => void }) => {
 						name='location'
 						id='location'
 						type='select'
-						options={['Chennai', 'Bangalore', 'Hyderabad']}
+						options={['Chennai', 'Bangalore', 'Hyderabad','Kochi','Mumbai','Noida']}
 						register={register('location')}
 						error={errors.location?.message}
 					/>

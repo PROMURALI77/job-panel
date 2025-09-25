@@ -58,6 +58,9 @@ const JobFilters = () => {
           <option value="Chennai">Chennai</option>
           <option value="Bangalore">Bangalore</option>
           <option value="Hyderabad">Hyderabad</option>
+          <option value="Kochi">Kochi</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Noida">Noida</option>
         </select>
       </div>
 

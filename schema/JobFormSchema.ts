@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const locations = ["Chennai", "Bangalore", "Hyderabad"] as const;
+const locations = ["Chennai", "Bangalore", "Hyderabad","Kochi","Mumbai","Noida"] as const;
 const jobTypes = ["FullTime", "PartTime", "Contract"] as const;
 
 export const JobFormSchema = z
