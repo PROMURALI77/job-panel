@@ -1,44 +1,103 @@
-"use client";
+'use client';
 
-import React from "react";
-import { JobCard } from "@/components";
-import { jobs } from "@/constants";
-import { useAppContext } from "@/hooks/useAppContext";
+import React, { useEffect, useState } from 'react';
+import { JobCard } from '@/components';
+import { comp_amazon } from '@/assets';
+import { useAppContext } from '@/hooks/useAppContext';
 
 const JobList = () => {
-  const { search, location, jobType, salaryRange } = useAppContext();
+	const { search, location, jobType, salaryRange } = useAppContext();
+	const [jobs, setJobs] = useState<any[]>([]);
+	const [loading, setLoading] = useState(true);
 
-  const jobsList = [...jobs, ...jobs, ...jobs];
-  jobsList.splice(jobsList.length - 1, 1);
+	useEffect(() => {
+		fetch('/api/jobs')
+			.then((res) => res.json())
+			.then((data) => {
+				if (Array.isArray(data)) {
+					setJobs(data);
+				} else if (data.jobs && Array.isArray(data.jobs)) {
+					setJobs(data.jobs);
+				} else {
+					setJobs([]);
+				}
+				setLoading(false);
+			})
+			.catch(() => {
+				setJobs([]);
+				setLoading(false);
+			});
+	}, []);
 
-  const filteredJobs = jobsList.filter((job) => {
-    const matchSearch = job.job_title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    const matchLocation = location ? job.location === location : true;
-    const matchType = jobType ? job.job_type === jobType : true;
+	const filteredJobs = jobs.filter((job) => {
+		const matchesSearch =
+			search.trim() === '' ||
+			job.job_title.toLowerCase().includes(search.toLowerCase()) ||
+			(job.job_description &&
+				job.job_description
+					.toLowerCase()
+					.includes(search.toLowerCase()));
 
-    const matchSalary =
-      job.job_salary >= salaryRange.min && job.job_salary <= salaryRange.max;
+		const matchesLocation =
+			location.trim() === '' || job.location === location;
 
-    return matchSearch && matchLocation && matchType && matchSalary;
-  });
+		const matchesJobType =
+			jobType.trim() === '' || job.job_type === jobType;
 
-  return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px]">
-      {filteredJobs.map((item, index) => (
-        <JobCard
-          key={index}
-          job_exp={item.job_exp}
-          job_img={item.job_img}
-          job_title={item.job_title}
-          job_desc={item.job_desc}
-          job_location={item.job_location}
-          job_salary={item.job_salary}
-        />
-      ))}
-    </div>
-  );
+		// Salary filter: job.min_salary is in INR, salaryRange is in lakhs
+		const minSalaryLakh = job.min_salary ? job.min_salary / 100000 : 0;
+		const matchesSalary =
+			minSalaryLakh >= salaryRange.min &&
+			minSalaryLakh <= salaryRange.max;
+
+		return (
+			matchesSearch && matchesLocation && matchesJobType && matchesSalary
+		);
+	});
+
+	if (loading) {
+		return <div className='text-center py-10'>Loading jobs...</div>;
+	}
+
+	if (jobs.length === 0) {
+		return <div className='text-center py-10'>No jobs available.</div>;
+	}
+
+	if (filteredJobs.length === 0) {
+		return (
+			<div className='text-center py-10'>No jobs match your filters.</div>
+		);
+	}
+
+	return (
+		<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px]'>
+			{filteredJobs.map((item, index) => {
+				const salaryLPA = item.min_salary
+					? Math.round(item.min_salary / 100000)
+					: 0;
+				return (
+					<JobCard
+						key={item._id || index}
+						job_exp={'1-3yr Exp'}
+						job_img={comp_amazon}
+						job_title={item.job_title}
+						job_desc={[item.job_description]}
+						job_location={item.location}
+						job_salary={salaryLPA}
+					/>
+				);
+			})}
+		</div>
+	);
 };
 
 export default JobList;
+
+interface JobCardProps {
+	job_exp: string;
+	job_img: string;
+	job_title: string;
+	job_desc: string[];
+	job_location: string;
+	job_salary: number;
+}
