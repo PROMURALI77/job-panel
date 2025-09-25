@@ -7,7 +7,7 @@ import { Toaster } from 'react-hot-toast';
 export const metadata: Metadata = {
 	title: 'CyberMind Works',
 	description:
-		'A Full-stack Admin Job Portal built with Next.js',
+		'A Full-stack Admin Job Panel built with Next.js',
 };
 
 const satoshi = localFont({

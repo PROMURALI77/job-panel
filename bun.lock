@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "job-portal",
+      "name": "job-panel",
       "dependencies": {
         "@hookform/resolvers": "^5.2.2",
         "mongoose": "^8.18.2",
