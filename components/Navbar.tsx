@@ -21,7 +21,7 @@ const Navbar = () => {
 						{navLinks?.map((item) => (
 							<li
 								key={item}
-								className='text-navbar font-[600] px-[24px] py-[8px] rounded-[12px] p-5 hover:shadow-lg hover:translate-x-1 hover:translate-y-1 duration-300 cursor-default'
+								className='text-navbar font-[600] cursor-pointer px-[24px] py-[8px] rounded-[12px] p-5 hover:shadow-lg hover:translate-x-1 hover:translate-y-1 duration-300'
 							>
 								{item}
 							</li>

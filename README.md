@@ -7,6 +7,12 @@ Effortlessly organize, publish, and oversee job listings with a fast, mobile-fri
 
 ---
 
+> **Note:**  
+> The company logos displayed for each job listing (Amazon, Swiggy, Tesla) are assigned randomly.  
+> This is because the job form currently does not support image uploads.
+
+---
+
 ## 🌟 Highlights
 
 - 📝 **Post Job Listings**
@@ -66,5 +72,3 @@ Visit [http://localhost:3000](http://localhost:3000) to get started!
 - [TailwindCSS Docs](https://tailwindcss.com/docs)
 - [TypeScript Docs](https://www.typescriptlang.org/docs/)
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
-
----
